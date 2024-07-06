@@ -4,7 +4,7 @@ const passport = require('passport');
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:5000/api/auth/google/callback",
+    callbackURL: "https://homestay-server.vercel.app/api/auth/google/callback",
     scope:['profile','email'],
   },
   function(accessToken, refreshToken, profile, done) {
