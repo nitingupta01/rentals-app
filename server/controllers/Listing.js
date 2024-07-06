@@ -76,7 +76,8 @@ const fetchPropertiesBySearch = async(req,res)=>{
                 {category:{$regex:search,$options:'i'}},
                 {title: {$regex:search,$options:'i'}},
                 {city: {$regex:search, $options:'i'}},
-                {country: {$regex:search,$options:'i'}}
+                {country: {$regex:search,$options:'i'}},
+                {province: {$regex:search,$options:'i'}}
             ]
         }).populate('creator','firstName lastName profileImageURL');
         res.status(200).json(listing);
