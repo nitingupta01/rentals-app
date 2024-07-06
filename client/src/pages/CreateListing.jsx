@@ -284,7 +284,7 @@ const CreateListing = () => {
                     required
                 />
                 <p>Now, set your PRICE</p>
-                <span>$</span>
+                <span>₹</span>
                 <input
                     type="number"
                     placeholder="100"
