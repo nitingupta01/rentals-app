@@ -1,0 +1,84 @@
+const mongoose = require('mongoose');
+
+const ListingSchema = new mongoose.Schema({
+    creator:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    type:{
+        type:String,
+        required:true
+    },
+    streetAddress:{
+        type:String,
+        required:true
+    },
+    aptSuite:{
+        type:String,
+        required:true
+    },
+    city:{
+        type:String,
+        required:true
+    },
+    province:{
+        type:String,
+        required:true
+    },
+    country:{
+        type:String,
+        required:true
+    },
+    guestsCount:{
+        type:String,
+        required:true
+    },
+    bedroomsCount:{
+        type:String,
+        required:true
+    },
+    bedsCount:{
+        type:String,
+        required:true
+    },
+    bathroomsCount:{
+        type:String,
+        required:true
+    },
+    amenities:{
+        type:Array,
+        default:[]
+    },
+    listingPhotos:{
+        type:[]
+    },
+    title:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    highlight:{
+        type:String,
+        required:true
+    },
+    highlightDesc:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    }
+},
+{timestamps:true}
+);
+
+const Listing = mongoose.model('Listing',ListingSchema);
+module.exports = Listing;
