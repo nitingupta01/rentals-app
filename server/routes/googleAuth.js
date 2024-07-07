@@ -2,7 +2,7 @@ const User = require('../models/User');
 const passport=require('passport');
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const redirecturl = 'http://localhost:3000';
+const redirecturl = 'https://homestay-three.vercel.app';
 
 
 

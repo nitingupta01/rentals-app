@@ -14,7 +14,7 @@ require('./config/passportConfig.js')
 
 
 const app=express();
-app.use(cors({credentials: true,origin: "http://localhost:3000"}));
+app.use(cors({credentials: true,origin: "https://homestay-three.vercel.app"}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
