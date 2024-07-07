@@ -51,7 +51,7 @@ const getPropertyList = async(req,res)=>{
 const getReservationList = async(req,res)=>{
     try{
         const id=req.id;
-        const reservations = await Booking.find({hostId:id}).populate('listingId');
+        const reservations = await Booking.find({hostId:id}).populate('listingId').populate({path:'customerId',select:'firstName lastName profileImageURL'});
         res.status(200).json(reservations);
     }catch(err){
         console.log(err);

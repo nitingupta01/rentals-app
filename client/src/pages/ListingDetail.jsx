@@ -190,9 +190,10 @@ const ListingDetail = () => {
                             <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
                             <p>End Date: {dateRange[0].endDate.toDateString()}</p>
 
-                            {user && <button className="submit-btn" type='submit' onClick={handleSubmit} disabled={loadingState || listing.price*dayCount===0}>Booking
+                            {user && !(user._id===listing.creator._id) && <button className="submit-btn" type='submit' onClick={handleSubmit} disabled={loadingState || listing.price*dayCount===0}>Booking
                                 {loadingState && <CircularProgress size={20} sx={{color:'white' ,marginLeft:'10px'}}/>}
                             </button>}
+                            {user._id===listing.creator._id && <button  className="submit-btn" disabled>Your Property</button>}
                         </div>
                     </div>
 

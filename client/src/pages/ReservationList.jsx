@@ -41,7 +41,7 @@ const ReservationList = () => {
             {loading?<Loader/>:
             <div className='list'>
                 {reservations?.length===0 && <h3>No Results Found</h3>}
-                {reservations?.map(({listingId})=>(
+                {reservations?.map(({startDate,endDate,customerId,listingId})=>(
                     <ListingCard _id={listingId._id} listingPhotos={listingId.listingPhotos} 
                     city={listingId.city}
                     province={listingId.province}
@@ -49,7 +49,11 @@ const ReservationList = () => {
                     type={listingId.type}
                     price={listingId.price}
                     country={listingId.country}
-                    triped={false}
+                    startDate={startDate}     
+                    endDate={endDate}  
+                    profileImageURL={customerId.profileImageURL}    
+                    bookedBy={`${customerId.firstName} ${customerId.lastName}`}       
+                    triped={true}     
                     />
                 ))}
             </div>

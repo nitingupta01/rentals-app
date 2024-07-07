@@ -49,15 +49,15 @@ const login  = async(req,res)=>{
             return res.status(401).json({message:'Wrong Password'});
         }
 
+        const user=await User.findOne({email}).select({password:0})
         const token = jwt.sign({id:existUser._id},process.env.JWT_SECRET);
-        delete existUser._id;
-        delete existUser.password;
+
         res.cookie("token",token,{
             secure:true,
             sameSite:'none',
             expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
             httpOnly: true,
-        }).status(200).json(existUser);
+        }).status(200).json(user);
     }catch(err){
         console.log(err);
         res.status(500).json({message:err.message});
@@ -79,9 +79,8 @@ const logout = async(req,res)=>{
 }
 
 const getMyProfile = async (req, res)=> {
-    const user = await User.findById(req.id);
-    delete user._id;
-    delete user.password;
+    const user = await User.findById(req.id).select({password:0});
+    
     res.status(200).json(user);
 };
 

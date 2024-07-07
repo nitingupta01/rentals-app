@@ -7,7 +7,7 @@ import {Url} from '../utils/constant';
 import { setWishList } from '../redux/state';
 import { Favorite } from '@mui/icons-material';
 
-const ListingCard = ({_id,listingPhotos,city,province,country,category,type,price,startDate,endDate,triped}) => {
+const ListingCard = ({_id,listingPhotos,city,province,country,category,type,price,startDate,endDate,profileImageURL,bookedBy,triped}) => {
   const navigate=useNavigate();
   const dispatch=useDispatch();
 
@@ -60,6 +60,7 @@ const ListingCard = ({_id,listingPhotos,city,province,country,category,type,pric
       <p>{category}</p>
       {triped && <>
         <p>{startDate}-{endDate}</p>
+        {bookedBy && <p style={{display:'flex', alignItems:'center'}}>Booked By {bookedBy} <img src={profileImageURL} style={{width:'15px',height:'15px',borderRadius:'50%',marginLeft:'2px'}}/> </p>}          
         <p><span>₹{price}</span> Total Price</p>
       </>
       }

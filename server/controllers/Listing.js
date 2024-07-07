@@ -56,7 +56,7 @@ const fetchPropertyById = async(req,res)=>{
         if(!id){
             return res.status(400).json({message:'Property Not Found'});
         }
-        const property= await Listing.findById(id).populate('creator','firstName lastName profileImageURL');
+        const property= await Listing.findById(id).populate('creator','_id firstName lastName profileImageURL');
         if(!property){
             return res.status(400).json({message:'Property Not Found'});
         }
