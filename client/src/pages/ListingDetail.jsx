@@ -193,7 +193,7 @@ const ListingDetail = () => {
                             {user && !(user._id===listing.creator._id) && <button className="submit-btn" type='submit' onClick={handleSubmit} disabled={loadingState || listing.price*dayCount===0}>Booking
                                 {loadingState && <CircularProgress size={20} sx={{color:'white' ,marginLeft:'10px'}}/>}
                             </button>}
-                            {user._id===listing.creator._id && <button  className="submit-btn" disabled>Your Property</button>}
+                            {user && user._id===listing.creator._id && <button  className="submit-btn" disabled>Your Property</button>}
                         </div>
                     </div>
 
